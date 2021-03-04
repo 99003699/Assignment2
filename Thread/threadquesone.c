@@ -21,7 +21,7 @@ int x = 0;
 int sum = 0;
 int y = 100;
 
-void* sum_array(void* arg){
+void* sum_array1(void* arg){
     char* pv = arg;
 
     printf("%s--welcome\n",pv);
@@ -32,21 +32,70 @@ void* sum_array(void* arg){
     x += 100;
     y += 100;
     printf("Sum is %d\n", sum);
+}
 
 
-    
+void* sum_array2(void* arg){
+    char* pv = arg;
 
+    printf("%s--welcome\n",pv);
+    //the array will do sum in 5 parts
+    for(int i = x; i<y; i++){
+        sum += array[i];
+    }
+    x += 100;
+    y += 100;
+    printf("Sum is %d\n", sum);
+}
+
+void* sum_array3(void* arg){
+    char* pv = arg;
+
+    printf("%s--welcome\n",pv);
+    //the array will do sum in 5 parts
+    for(int i = x; i<y; i++){
+        sum += array[i];
+    }
+    x += 100;
+    y += 100;
+    printf("Sum is %d\n", sum);
+}
+
+void* sum_array4(void* arg){
+    char* pv = arg;
+
+    printf("%s--welcome\n",pv);
+    //the array will do sum in 5 parts
+    for(int i = x; i<y; i++){
+        sum += array[i];
+    }
+    x += 100;
+    y += 100;
+    printf("Sum is %d\n", sum);
+}
+
+void* sum_array5(void* arg){
+    char* pv = arg;
+
+    printf("%s--welcome\n",pv);
+    //the array will do sum in 5 parts
+    for(int i = x; i<y; i++){
+        sum += array[i];
+    }
+    x += 100;
+    y += 100;
+    printf("Sum is %d\n", sum);
 }
 
 int main(){
     void* status;
     pthread_t pt1, pt2, pt3, pt4, pt5;// thread handle
 
-    pthread_create(&pt1,NULL,sum_array,"SUM100");
-	pthread_create(&pt2,NULL,sum_array,"SUM200");
-    pthread_create(&pt3,NULL,sum_array,"sum300");
-    pthread_create(&pt4,NULL,sum_array,"sum400");
-	pthread_create(&pt5,NULL,sum_array,"SUM500");
+    pthread_create(&pt1,NULL,sum_array1,"SUM100");
+	pthread_create(&pt2,NULL,sum_array2,"SUM200");
+    pthread_create(&pt3,NULL,sum_array3,"sum300");
+    pthread_create(&pt4,NULL,sum_array4,"sum400");
+	pthread_create(&pt5,NULL,sum_array5,"SUM500");
     pthread_join(pt1,&status);
 	pthread_join(pt2,NULL);
     pthread_join(pt3,NULL);
